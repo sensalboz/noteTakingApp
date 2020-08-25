@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Text = () => {
 
-  const getStorage = async () => {
-    const data = await localStorage.getItem('data');
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+
+    const maker = localStorage.getItem('data');
+    setData(JSON.parse(maker))
     console.log(data)
-  }
-
-  getStorage();
+  }, [])
 
 
-
+  // console.log(data)
   return (
     <div>
       <h2>maker</h2>
